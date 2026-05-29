@@ -47,7 +47,7 @@ Vaccination coverage is one of the most important indicators for monitoring publ
 
 Clone the repo:
 ```bash
-git clone https://github.com/S-ABDUL-AI/World_Vaccination_Coverage-ETL.git
+git clone https://github.com/S-ABDUL-AI/GLOBAL-VACCINATION-COVERAGE-EXPLORER.git
 cd World_Vaccination_Coverage-ETL
 install 
 🤖 CI/CD with GitHub Actions
