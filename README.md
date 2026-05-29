@@ -1,76 +1,112 @@
-# 📊 World Vaccination Coverage ETL & Dashboard
+# Global Vaccination Coverage Explorer
+**Automated ETL Pipeline and Interactive Dashboard for Public Health Teams**
 
-[![Refresh Vaccination Database](https://github.com/S-ABDUL-AI/World_Vaccination_Coverage-ETL/actions/workflows/refresh_vaccination_db.yml/badge.svg)](https://github.com/S-ABDUL-AI/World_Vaccination_Coverage-ETL/actions/workflows/refresh_vaccination_db.yml)
+An end-to-end ETL pipeline and interactive Streamlit dashboard that automates 
+the extraction, cleaning, and visualisation of global vaccination coverage data 
+from OWID, UNICEF, and WHO sources. The database refreshes automatically every 
+week via GitHub Actions — no manual updates required.
 
+Built to support public health programme officers, researchers, and policy teams 
+who need current, reliable immunisation data in an accessible format.
 
-# 🌍 World Vaccination Coverage — ETL & Dashboard
+---
 
-## 📌 Background
-Vaccination coverage is one of the most important indicators for monitoring public health and child survival globally. UNICEF and WHO collect data to assess how immunization programs are performing across countries. To make this data accessible and actionable, we built an **ETL pipeline + interactive dashboard** that automates data updates and enables dynamic exploration.
+## The Problem This Solves
 
-## 🛑 Problem Statement
-- Immunization data is often scattered and updated periodically.  
-- Analysts and decision-makers need a **single source of truth** that stays up to date.  
-- Manual refreshing of datasets introduces delays and errors.  
+Immunisation data is scattered across multiple sources and updated periodically. 
+Analysts need a single source of truth that stays current without manual 
+intervention. This tool automates the full pipeline — from raw OWID data to a 
+clean SQLite database to an interactive dashboard.
 
-## 🎯 Objectives
-1. Automate the **extraction, cleaning, and loading** of vaccination coverage data.  
-2. Store cleaned data in a **SQLite database** for reproducibility.  
-3. Provide an **interactive dashboard** (Streamlit) for visualizing country-specific coverage trends.  
-4. Enable **continuous integration / continuous deployment (CI/CD)** via GitHub Actions to refresh datasets automatically.  
+---
 
-## ⚙️ System Architecture
-1. **ETL Pipeline (`etl_pipeline.py`)**  
-   - Extracts vaccination coverage data from [Our World in Data (OWID)](https://ourworldindata.org/).  
-   - Cleans and transforms data (filters by antigen and country).  
-   - Loads cleaned results into `vaccination.db`.  
+## What This Tool Produces
 
-2. **Dashboard (`streamlit_app.py`)**  
-   - Reads data directly from `vaccination.db`.  
-   - Provides interactive filtering by **country** and **antigen**.  
-   - Visualizes vaccination trends over time.
-     
-3. **Automation (GitHub Actions)**  
-   - Workflow runs weekly (every Monday at 03:00 UTC).  
-   - Refreshes `vaccination.db` with the latest OWID data.  
-   - Saves **artifacts** (`vaccination.db`, cleaned CSVs, plots) for download after each run.  
+| Output | Description |
+|---|---|
+| Country and antigen trends | Interactive time-series charts filterable by country and vaccine |
+| Before/after campaign analysis | Statistical testing (t-test) comparing coverage before and after campaigns |
+| Executive KPI cards | High-level snapshot of coverage rates and trend direction |
+| Downloadable outputs | vaccination.db, cleaned CSVs, and plots from GitHub Actions artifacts |
+| Weekly automated refresh | Database updates every Monday at 03:00 UTC via GitHub Actions |
 
-## 🚀 Features
-- 📊 Country & antigen–specific vaccination trends  
-- 🗂 SQLite database backend for structured storage  
-- ⚡ Automated refresh with GitHub Actions (CI/CD)  
-- 📦 Downloadable outputs (DB, CSV, plots) directly from GitHub Artifacts  
-- 🌐 Reproducible & lightweight (uses `pandas`, `sqlite3`, `matplotlib`, `scipy`, `streamlit`)
-  
+---
 
-## 🛠️ Installation & Setup
+## Quickstart
 
-Clone the repo:
-```bash
 git clone https://github.com/S-ABDUL-AI/GLOBAL-VACCINATION-COVERAGE-EXPLORER.git
-cd World_Vaccination_Coverage-ETL
-install 
-🤖 CI/CD with GitHub Actions
-Workflow file: .github/workflows/refresh_vaccination_db.yml
+cd GLOBAL-VACCINATION-COVERAGE-EXPLORER
+pip install -r requirements.txt
+streamlit run streamlit_app.py
 
-Triggers:
+---
 
-Weekly (cron job every Monday 03:00 UTC)
-Manual trigger from GitHub Actions tab
-Outputs available in GitHub → Actions → Artifacts:
-vaccination.db (latest SQLite database)
-clean_*.csv (cleaned datasets)
-plot_*.png (visualizations)
+## System Architecture
 
+**ETL Pipeline (etl_pipeline.py)**
+Extracts vaccination coverage data from OWID, cleans and transforms by antigen 
+and country, loads into vaccination.db.
 
- 📈 Future Enhancements
+**Dashboard (streamlit_app.py)**
+Reads from vaccination.db. Interactive filtering by country and antigen with 
+Plotly visualisations and executive KPI cards.
 
-Add before/after campaign statistical analysis (t-tests, confidence intervals).
-Deploy Streamlit app publicly (Streamlit Cloud, Heroku, or Docker).
-Extend pipeline to cover multiple countries and antigens simultaneously.
+**Automation (.github/workflows/refresh_vaccination_db.yml)**
+Runs weekly every Monday 03:00 UTC. Refreshes vaccination.db and saves 
+artifacts for download after each run.
 
+---
 
-👨‍💻 Author
+## Repository Structure
 
-Sherriff Abdul-Hamid
-Repository: World_Vaccination_Coverage-ETL
+GLOBAL-VACCINATION-COVERAGE-EXPLORER/
+  streamlit_app.py              # Main Streamlit dashboard
+  etl_pipeline.py               # ETL pipeline
+  report_generator.py           # Report export engine
+  vaccination.db                # SQLite database (auto-refreshed weekly)
+  requirements.txt
+  runtime.txt
+  .github/workflows/
+    refresh_vaccination_db.yml  # GitHub Actions CI/CD workflow
+  README.md
+
+---
+
+## Data Sources
+
+- Vaccination coverage: Our World in Data sourced from UNICEF and WHO
+- Antigens: DTP3, MCV1, MCV2, PCV3, and related indicators
+- Geographic coverage: 190+ countries
+
+---
+
+## About the Author
+
+Sherriff Abdul-Hamid is a development economist and public-sector AI researcher 
+applying cost-effectiveness analysis and causal inference to social protection, 
+public health, and benefits delivery systems.
+
+- Founder and Executive Director, Poverty 360 — 58,000+ beneficiaries across 
+  five countries
+- Partnered with Ghana NHIA to enrol 1,250 vulnerable women into national 
+  health coverage
+- Secured and managed multi-year institutional funding from USAID, UKAID, 
+  UNDP, and USADF
+- Obama Foundation Leaders Award — Top 1.3% globally, 2023
+- Mandela Washington Fellow — Top 0.3%, U.S. Department of State, 2018
+- Harvard Business School Senior Executive Programme
+
+---
+
+## Related Projects
+
+- Medicaid Healthcare Access Risk Monitor
+- Safety Net Risk Monitor
+- GovFund Allocation Engine
+
+---
+
+## Scope Note
+
+All built-in data is sourced from publicly available OWID/UNICEF/WHO datasets. 
+Validate against national immunisation registry data for programme-level use.
