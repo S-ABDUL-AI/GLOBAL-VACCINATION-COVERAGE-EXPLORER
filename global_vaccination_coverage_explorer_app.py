@@ -397,7 +397,7 @@ def run() -> None:
     st.markdown("---")
     st.markdown('<div class="sec-lbl">Export</div>', unsafe_allow_html=True)
     st.markdown(
-        '<div class="sec-ttl">Download McKinsey Style Policy Report</div><div class="sec-sub">'
+        '<div class="sec-ttl">Download Policy Report</div><div class="sec-sub">'
         "Generate a policy memo with executive snapshot, risk implication action cards, chart exhibits, "
         "and methodology notes for country decision reviews."
         "</div>",
@@ -434,8 +434,7 @@ def run() -> None:
     st.markdown(
         f"""
 <div class="byline">
-  <strong style="color:{GOLD};">Built by Sherriff Abdul-Hamid</strong> — Built by Sherriff Abdul-Hamid — Development economist and public-sector AI 
-researcher applying causal inference and cost-effectiveness analysis to social protection and public health systems. Founder and Executive Director, Poverty 
+  <strong style="color:{GOLD};">Built by Sherriff Abdul-Hamid</strong> — Development economist and public-sector AI researcher applying causal inference and cost-effectiveness analysis to social protection and public health systems. Founder and Executive Director, Poverty 
 360 — 58,000+ beneficiaries across five countries. Secured and managed multi-year institutional funding from USAID, UKAID, UNDP, and USADF across health, nutrition, and social protection 
 programmes. Obama Foundation Leaders Award (Top 1.3%) · Mandela Washington Fellow (Top 0.3%) · Harvard Business School.<br><br>
   <strong style="color:{GOLD};">Related tools:</strong> &nbsp;
