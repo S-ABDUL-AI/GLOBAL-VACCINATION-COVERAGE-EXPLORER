@@ -80,21 +80,11 @@ GLOBAL-VACCINATION-COVERAGE-EXPLORER/
 
 ---
 
-## About the Author
+## Author
 
-Sherriff Abdul-Hamid is a development economist and public-sector AI researcher 
-applying cost-effectiveness analysis and causal inference to social protection, 
-public health, and benefits delivery systems.
-
-- Founder and Executive Director, Poverty 360 — 58,000+ beneficiaries across 
-  five countries
-- Partnered with Ghana NHIA to enrol 1,250 vulnerable women into national 
-  health coverage
-- Secured and managed multi-year institutional funding from USAID, UKAID, 
-  UNDP, and USADF
-- Obama Foundation Leaders Award — Top 1.3% globally, 2023
-- Mandela Washington Fellow — Top 0.3%, U.S. Department of State, 2018
-- Harvard Business School Senior Executive Programme
+**Sherriff Abdul-Hamid**
+Data Scientist · Development Economist · Public Health Analytics
+[poverty360.org](https://poverty360.org) | [LinkedIn](https://www.linkedin.com/in/abdul-hamid-sherriff-08583354/) | [GitHub](https://github.com/S-ABDUL-AI)
 
 ---
 
